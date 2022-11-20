@@ -1,0 +1,11 @@
+.navbar{
+    min-height: 150px !important;
+}
+
+.home-d{
+    display: flex !important;
+}
+
+a.linker:hover{
+    height: 200px;
+}

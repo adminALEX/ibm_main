@@ -1,19 +1,25 @@
-function jobs(n){
-let text = document.querySelectorAll('card-title');
-let text1 = text[n].innerHTML;
-window.location.replace(window.location.href+'/apply', {
-    job : text1
-});
-}
-
 // function jobs(n){
-//     let text = document.querySelectorAll('card-title');
+//     let text = document.getElementsByClassName('card-title');
+//     console.log(text);
 //     let text1 = text[n].innerHTML;
-//     $.ajax({
-//         type: "POST",
-//         url: "/login",
-//         data: JSON.stringify(text1),
-//         contentType: "application/json",
-//         dataType: 'json',
-//       });
-// } 
+//     console.log(text1);
+//     ajax({
+//         url: 'apply',
+//         type: 'POST',
+//         data: {
+//             job: text1
+//         },
+//         success: function (response) {
+//             response = JSON.parse(response);
+//         },
+//         error: function (response) {
+//         }
+//     });
+// }
+
+function jobs(n){
+    let text = document.getElementsByClassName('card-title');
+    console.log(text);
+    let text1 = text[n].innerHTML;
+    window.location.replace("/apply/"+text1);
+} 

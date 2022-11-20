@@ -7,6 +7,9 @@
     <title>JOBPORTAL | HOME</title>
        <div class="msg">{{ msg }}</div>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap" rel="stylesheet">
         <!-- favicon -->
         <!-- <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"> -->
         <!-- <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon"> -->
@@ -34,9 +37,8 @@
               </button>
              
               <div class="row donate-sponsor">
-                <a type="button" class="btn btn-success mr-1" id="donate" href="/logout">LOGOUT</a>
-                <a type="button" class="btn btn-warning mr-1" id="sponsor" href="register">REGISTER</a>
-                <a type="button" class="btn btn-primary mr-1" id="sponsor" href="display">MY JOBS</a>
+                <a type="button" class="col-3 links" id="donate" href="/logout">LOGOUT</a>
+                <a type="button" class="col-3 links" id="sponsor" href="dashboard">DASHBOARD</a>
               </div>
             </div>
           </nav>
@@ -45,32 +47,32 @@
         <!-- what we focus on -->
         <section class="our-focus">
             <div class="container">
-              <h2 class="text-center mt-3">Your details</h2>
-              <div class="border">
-							<table class="worddark"></br></br></br></br>
+              <h2 class="text-center head">Your details</h2>
+              <div class="border-box">
+							<table class="worddark">
 								<tr>
-									<td>userid:</td>
-									<td>Alex{{ account[0] }}</td>
+									<td class="thead">USERNAME  </td>
+									<td>{{ account['USERNAME'] }}</td>
 								</tr>
 								<tr>
-									<td>username:</td>
-									<td>alex{{ account[1] }}</td>
+									<td class="thead">EMAIL  </td>
+									<td>{{ account['EMAIL'] }}</td>
 								</tr>
 								<tr>
-									<td>Email ID:</td>
-									<td>alexflora6@gmail.com{{ account[2] }}</td>
+									<td class="thead">QUALIFICATION  </td>
+									<td>{{ account['QUALIFICATION'] }}</td>
 								</tr>
 								<tr>
-									<td>qualification:</td>
-									<td>BE{{ account[3] }}</td>
+									<td class="thead">SKILLS  </td>
+									<td>{{ account['SKILLS'] }}</td>
+								</tr>
+                <tr>
+									<td class="thead">CATEGORY  </td>
+									<td>{{ account['CATEGORY'] }}</td>
 								</tr>
 								<tr>
-									<td>skills:</td>
-									<td>Java{{ account[4] }}</td>
-								</tr>
-								<tr>
-									<td>JOB Applied:</td>
-									<td>Python Dev{{ account[5] }}</td>
+									<td class="thead">JOB APPLIED  </td>
+									<td>{{ account['JOB'] }}</td>
 								</tr>
 								
 											

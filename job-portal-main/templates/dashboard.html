@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOBPORTAL | HOME</title>
+    <script type="text/javascript" src="../static/js/index.js"></script>
     <meta charset="UTF-8">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+      </style>
         <!-- favicon -->
         <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-32x32.png">
         <!-- bootstrap css cdn -->
@@ -29,12 +33,9 @@
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="row donate-sponsor">
-              {%if msg == False%}
-                <a type="button" class="btn btn-warning mr-1" id="sponsor" href="register">REGISTER</a>
-                <a type="button" class="btn btn-primary mr-1" id="sponsor" href="display">MY JOBS</a>
-                {%endif%}
-                <a type="button" class="btn btn-success mr-1" id="donate" href="logout">LOGOUT</a>
+              <div class="row donate-sponsor dash">
+                <a type="button" class="col-6 links" id="donate" href="/logout">LOGOUT</a>
+                <a type="button" class="col-6 links" id="sponsor" href="display">MY JOBS</a>
               </div>
               
             </div>
@@ -45,36 +46,36 @@
         <div class="main-focus">
         <section class="our-focus">
             <div class="container">
-              <h2 class="text-center mt-3">Available Jobs</h2><hr>
+              <h2 class="text-center word mt-3">Available Jobs</h2><hr>
               <div class="row ml-3 mt-3">
                 <div class="col-lg-3 mr-5" id="focus-first">
-                  <div class="card" style="width: 19rem;">
+                  <div class="card hov" style="width: 19rem;">
                     <!-- <img src="assets/img/home kids.jpg" class="card-img-top" alt="..."> -->
                     <div class="card-body">
-                      <h5 class="card-title" id="job-1">Python</h5>
-                      <p class="card-text">Skills for python
+                      <h5 class="card-title word-1" id="job-1">Python</h5>
+                      <p class="card-text word-2">Skills for python
                       </p>
-                      <a href="javascript:jobs(1)" class="btn btn-primary">Apply Now</a>
+                      <a href="javascript:jobs(0)" class="btn btn-primary">Apply Now</a>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-3 mr-5" id="focus-second">
-                  <div class="card" style="width: 20rem;">
+                  <div class="card hov" style="width: 20rem;">
                     <!-- <img src="assets/img/friendship day.JPG" class="card-img-top" alt="..."> -->
                     <div class="card-body">
-                      <h5 class="card-title" id="job-2">Data Scientist</h5>
-                      <p class="card-text">Skills for datascientist</p>
-                        <a href="javascript:jobs(2)" class="btn btn-primary">Apply Now</a>
+                      <h5 class="card-title word-1 " id="job-2">Data Scientist</h5>
+                      <p class="card-text word-2">Skills for datascientist</p>
+                        <a href="javascript:jobs(1)" class="btn btn-primary">Apply Now</a>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-3 ml-5" id="focus-third">
-                  <div class="card" style="width: 20rem;">
+                  <div class="card hov" style="width: 20rem;">
                     <!-- <img src="assets/img/health camp.jpg" class="card-img-top" alt="..."> -->
                     <div class="card-body">
-                      <h5 class="card-title" id="job-3">HR Manager</h5>
-                      <p class="card-text">skills for hr manager</p>
-                        <a href="javascript:jobs(3)" class="btn btn-primary">Apply Now</a>
+                      <h5 class="card-title word-1" id="job-3">HR Manager</h5>
+                      <p class="card-text word-2">skills for hr manager</p>
+                        <a href="javascript:jobs(2)" class="btn btn-primary">Apply Now</a>
                     </div>
                   </div>
                 </div>
@@ -84,33 +85,33 @@
           <div class="container">
             <div class="row ml-3 mt-3">
               <div class="col-lg-3 mr-5" id="focus-first">
-                <div class="card" style="width: 19rem;">
+                <div class="card hov" style="width: 19rem;">
                   <!-- <img src="assets/img/home kids.jpg" class="card-img-top" alt="..."> -->
                   <div class="card-body">
-                    <h5 class="card-title" id="job-4">Junior Developer</h5>
-                    <p class="card-text">Skills for managing
+                    <h5 class="card-title word-1" id="job-4">Junior Developer</h5>
+                    <p class="card-text word-2">Skills for managing
                     </p>
-                    <a href="javascript:jobs(4)" class="btn btn-primary">Apply Now</a>
+                    <a href="javascript:jobs(3)" class="btn btn-primary">Apply Now</a>
                   </div>
                 </div>
               </div>
               <div class="col-lg-3 mr-5" id="focus-second">
-                <div class="card" style="width: 20rem;">
+                <div class="card hov" style="width: 20rem;">
                   <!-- <img src="assets/img/friendship day.JPG" class="card-img-top" alt="..."> -->
                   <div class="card-body">
-                    <h5 class="card-title" id="job-5">AI Scientist</h5>
-                    <p class="card-text">Skills for Artificial Intelligence</p>
-                      <a href="javascript:jobs(5)" class="btn btn-primary">Apply Now</a>
+                    <h5 class="card-title word-1" id="job-5">AI Scientist</h5>
+                    <p class="card-text word-2">Skills for Artificial Intelligence</p>
+                      <a href="javascript:jobs(4)" class="btn btn-primary">Apply Now</a>
                   </div>
                 </div>
               </div>
               <div class="col-lg-3 ml-5" id="focus-third">
-                <div class="card" style="width: 20rem;">
+                <div class="card hov" style="width: 20rem;">
                   <!-- <img src="assets/img/health camp.jpg" class="card-img-top" alt="..."> -->
                   <div class="card-body">
-                    <h5 class="card-title">Senior Developer</h5>
-                    <p class="card-text">Skills for managing projects</p>
-                      <a href="javascript:jobs(6)" class="btn btn-primary">Apply Now</a>
+                    <h5 class="card-title word-1">Senior Developer</h5>
+                    <p class="card-text word-2">Skills for managing projects</p>
+                      <a href="javascript:jobs(5)" class="btn btn-primary">Apply Now</a>
                   </div>
                 </div>
               </div>
@@ -121,33 +122,33 @@
          <div class="container">
           <div class="row ml-3 mt-3">
             <div class="col-lg-3 mr-5" id="focus-first">
-              <div class="card" style="width: 19rem;">
+              <div class="card hov" style="width: 19rem;">
                 <!-- <img src="assets/img/home kids.jpg" class="card-img-top" alt="..."> -->
                 <div class="card-body">
-                  <h5 class="card-title">Java Devoloper</h5>
-                  <p class="card-text">Skills for Core Java
+                  <h5 class="card-title word-1">Java Devoloper</h5>
+                  <p class="card-text word-2">Skills for Core Java
                   </p>
-                  <a href="apply" class="btn btn-primary">Apply Now</a>
+                  <a href="javascript:jobs(6)" class="btn btn-primary">Apply Now</a>
                 </div>
               </div>
             </div>
             <div class="col-lg-3 mr-5" id="focus-second">
-              <div class="card" style="width: 20rem;">
+              <div class="card hov" style="width: 20rem;">
                 <!-- <img src="assets/img/friendship day.JPG" class="card-img-top" alt="..."> -->
                 <div class="card-body">
-                  <h5 class="card-title">ML Engineer</h5>
-                  <p class="card-text">Skills for Machine Learning</p>
-                    <a href="apply" class="btn btn-primary">Apply Now</a>
+                  <h5 class="card-title word-1">ML Engineer</h5>
+                  <p class="card-text word-2">Skills for Machine Learning</p>
+                    <a href="javascript:jobs(7)" class="btn btn-primary">Apply Now</a>
                 </div>
               </div>
             </div>
             <div class="col-lg-3 ml-5" id="focus-third">
-              <div class="card" style="width: 20rem;">
+              <div class="card hov" style="width: 20rem;">
                 <!-- <img src="assets/img/health camp.jpg" class="card-img-top" alt="..."> -->
                 <div class="card-body">
-                  <h5 class="card-title">Network Architect</h5>
-                  <p class="card-text">Skills for hr Data science</p>
-                    <a href="apply" class="btn btn-primary">Apply Now</a>
+                  <h5 class="card-title word-1">Network Architect</h5>
+                  <p class="card-text word-2">Skills for hr Data science</p>
+                    <a href="javascript:jobs(8)" class="btn btn-primary">Apply Now</a>
                 </div>
               </div>
             </div>
@@ -156,7 +157,7 @@
       </section> 
     </section>
     </div>
-    <script src="../static/js/index.js"></script>
+    
           <script>
             window.watsonAssistantChatOptions = {
               integrationID: "e22dcd16-3b9c-407a-90dc-0d175d6708eb", // The ID of this integration.

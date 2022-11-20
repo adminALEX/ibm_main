@@ -5,7 +5,7 @@ import os
 import json
 
 app = Flask(__name__)
-
+job=''
 app.secret_key='a'
 conn = ibm_db.connect("DATABASE=bludb;HOSTNAME=2f3279a5-73d1-4859-88f0-a6c3e6b4b907.c3n41cmd0nqnrk39u98g.databases.appdomain.cloud;PORT=30756;Security=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID=nmc63120;PWD=BC9ub7wWLk2Yb8fM;",'','')
 
@@ -79,13 +79,28 @@ def dash():
 
 @app.route('/display')
 def display():
-    print(session["username"],session['id'])
-    sql = "SELECT username FROM job WHERE username =?"
-    stmt=ibm_db.prepare(conn,sql)
-    ibm_db.bind_param(stmt,1,session['username'])
+    try:
+        username = session['username']
+    except:
+        return render_template('home.html',msg='Please login first')
+    print(username)
+    sql = "SELECT * FROM jobs WHERE username =?"
+    stmt = ibm_db.prepare(conn, sql)
+    print(stmt) 
+    ibm_db.bind_param(stmt,1,username)
     ibm_db.execute(stmt)
+    print(stmt) 
     account = ibm_db.fetch_assoc(stmt)
-    print("accountdislay",account)
+    print ("display",account)
+    
+
+    # print(session["username"],session['id'])
+    # sql = "SELECT username FROM jobs WHERE username =?"
+    # stmt=ibm_db.prepare(conn,sql)
+    # ibm_db.bind_param(stmt,1,session['username'])
+    # ibm_db.execute(stmt)
+    # account = ibm_db.fetch_assoc(stmt)
+    # print("accountdislay",account)
     return render_template('display.html',account = account)
 
 @app.route('/logout')
@@ -112,44 +127,53 @@ def home():
     msg=session['loggedin']
     return render_template('home.html',msg=msg)
 
-
+@app.route('/apply/<job>')
+def getJob(job):
+    job=job
+    return render_template('apply.html',job=job)
 @app.route('/apply',methods =['GET', 'POST'])
 def apply():
-     print(session['id'])
-     msg = ''
-     if request.method == 'POST' :
-         username = request.form['username']
-         email = request.form['email']
-         qualification= request.form['qualification']
-         skills = request.form['skills']
-         jobs = request.form['s']
-         with open('data.json') as f:
-            job = json.load(f)
-         sql = "SELECT * FROM users WHERE username =?"
-         stmt = ibm_db.prepare(conn, sql)
-         ibm_db.bind_param(stmt,1,username)
-         ibm_db.execute(stmt)
-         account = ibm_db.fetch_assoc(stmt)
-         print(account)
-         if account:
-            msg = 'there is only 1 job position! for you'
-            return render_template('display.html', msg = msg)
-         insert_sql = "INSERT INTO job VALUES (?, ?, ?, ?, ?, ?)"
-         prep_stmt = ibm_db.prepare(conn, insert_sql)
-         ibm_db.bind_param(prep_stmt, 1, username)
-         ibm_db.bind_param(prep_stmt, 2, email)
-         ibm_db.bind_param(prep_stmt, 3, qualification)
-         ibm_db.bind_param(prep_stmt, 4, skills)
-         ibm_db.bind_param(prep_stmt, 5, jobs)
-         ibm_db.bind_param(prep_stmt, 5, job)
-         ibm_db.execute(prep_stmt)
-         msg = 'You have successfully applied for job !'
-         session['loggedin'] = True
-         TEXT = "Hello,a new application for job position" +jobs+"is requested"  
-         return render_template('apply.html', msg = TEXT)   
-     elif request.method == 'POST':
-         msg = 'Please fill out the form !'
-     return render_template('apply.html', msg = msg)
+    msg=''
+    try:
+        print(session['id'])
+    except:
+        return render_template('apply.html',msg='Something went wrong')
+    msg = ''
+    if request.method == 'POST' :
+            username = session['username']
+            email = request.form['email']
+            qualification= request.form['qualification']
+            skills = request.form['skills']
+            categ = request.form['s']
+            sql = "SELECT job FROM jobs WHERE username =?"
+            stmt = ibm_db.prepare(conn, sql)
+            ibm_db.bind_param(stmt,1,username)
+            ibm_db.execute(stmt)
+            account = ibm_db.fetch_assoc(stmt)
+            if account:
+                print(account)
+                msg = 'There is only 1 job position! for you'
+                return render_template('apply.html', msg = msg)
+            insert_sql = "INSERT INTO jobs VALUES (?, ?, ?, ?, ?, ?)"
+            prep_stmt = ibm_db.prepare(conn, insert_sql)
+            ibm_db.bind_param(prep_stmt, 1, username)
+            ibm_db.bind_param(prep_stmt, 2, email)
+            ibm_db.bind_param(prep_stmt, 3, qualification)
+            ibm_db.bind_param(prep_stmt, 4, skills)
+            ibm_db.bind_param(prep_stmt, 5, categ)
+            ibm_db.bind_param(prep_stmt, 6, job)
+            ibm_db.execute(prep_stmt)
+            msg = 'You have successfully applied for '+job+' !'
+            session['loggedin'] = True
+            TEXT = "Hello, a new application for job position" ,job," is requested"  
+            return render_template('dashboard.html', msg = msg)
+    elif request.method == 'POST':
+        msg = 'Please fill out the form !'
+    if request.json != None:
+        session['job'] = request.json
+        session['job'] = session.get['job',None]
+    return render_template('apply.html', msg = msg)
 
 if __name__ == '__main__':
+    job=""
     app.run(debug=True)
