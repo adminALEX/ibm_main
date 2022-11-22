@@ -130,7 +130,8 @@ def home():
 @app.route('/apply/<job>')
 def getJob(job):
     job=job
-    return render_template('apply.html',job=job)
+
+    return redirect(url_for('apply',job=job))
 @app.route('/apply',methods =['GET', 'POST'])
 def apply():
     msg=''

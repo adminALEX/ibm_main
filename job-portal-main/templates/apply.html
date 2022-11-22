@@ -22,11 +22,21 @@
 </head>
 <body>
     <!-- bootstrap navbar -->
-    <div class="logo mt-3 text-center">
-        <a class="main-logo-img mt-5" href="/home"><img src="/static/img/goseek.png" alt="sheep-logo" height="180px" width="180px">
-            <!-- <a class="navbar-brand" href="index.html">JobPortal</a> -->
-          </a>
-    </div>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light">
+      <div class="container-fluid menu">
+        <a class="main-logo-img mt-3" href="home"><img src="static/img/goseek.png" alt="sheep-logo" height="180px" width="180px">
+          <!-- <a class="navbar-brand" href="index.html">JobPortal</a> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="row donate-sponsor dash">
+          <a type="button" class="col-6 links" id="donate" href="/logout">LOGOUT</a>
+          <a type="button" class="col-6 links" id="sponsor" href="display">MY JOBS</a>
+        </div>
+        
+      </div>
+    </nav>
       <!-- navbar ends -->
     <!-- Login form -->
     <div class="login text-center mt-5"> 
