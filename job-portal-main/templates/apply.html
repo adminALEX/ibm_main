@@ -32,18 +32,16 @@
         </button>
         <div class="row donate-sponsor dash">
           <a type="button" class="col-6 links" id="donate" href="/logout">LOGOUT</a>
-          <a type="button" class="col-6 links" id="sponsor" href="display">MY JOBS</a>
+          <a type="button" class="col-6 links" id="sponsor" href="/display">MY JOBS</a>
         </div>
         
       </div>
     </nav>
       <!-- navbar ends -->
     <!-- Login form -->
-    <div class="login text-center mt-5"> 
+    <div class="login text-center mt-5">     
         <h2>Apply Now</h2>
-        <div class="msg">{{msg}}</div>
         <form action="/apply" method="post" class="mt-3">
-            <input type="email" name="email" placeholder="Enter Your Email"  id="email" required></br></br>
             <input type="text" name="qualification" placeholder="Enter Your Qualification"  id="qualification" required></br></br>
             <input type="text" name="skills" placeholder="Enter Your Skills" id="skills" required></br></br>
             <select name ="s">
